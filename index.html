@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Anshar Salsaraja | Portfolio</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts: Inter & Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8faf9;
+            color: #1e2f2c;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #ffffffea;
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #dcece8;
+            padding: 0.8rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.35rem;
+            background: linear-gradient(135deg, #1e6f5c, #289672);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #1e4d47;
+            transition: 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: #c44536;
+        }
+
+        /* sections */
+        section {
+            scroll-margin-top: 80px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.8rem;
+            border-left: 5px solid #1e6f5c;
+            padding-left: 1rem;
+            color: #1e3f3a;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #1e6f5c;
+            color: white;
+            padding: 0.75rem 1.8rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #c44536;
+            transform: translateY(-2px);
+        }
+
+        /* home */
+        .home-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .home-text {
+            flex: 1;
+        }
+
+        .greeting {
+            font-size: 1.2rem;
+            color: #1e6f5c;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .home-text h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #1e3f3a;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+        }
+
+        .location {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: #4f6f6a;
+            margin: 1rem 0;
+        }
+
+        .home-avatar {
+            flex: 0.4;
+            min-width: 200px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .avatar-icon {
+            width: 200px;
+            height: 200px;
+            background: #e1f2ef;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.1);
+        }
+
+        .avatar-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* about row */
+        .about-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .about-card, .education-card {
+            background: white;
+            padding: 1.8rem;
+            border-radius: 28px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
+            transition: 0.2s;
+            border: 1px solid #d4e6e2;
+        }
+
+        .edu-item {
+            margin: 1rem 0;
+            border-bottom: 1px solid #e2efec;
+            padding-bottom: 0.8rem;
+        }
+
+        .edu-item h4 {
+            font-weight: 700;
+        }
+
+        .year {
+            font-size: 0.85rem;
+            color: #5f8b84;
+            margin-top: 5px;
+        }
+
+        /* projects */
+        .featured-wrapper h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .projects-showcase {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.8rem;
+            margin-bottom: 3rem;
+        }
+
+        .project-nexus {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+            transition: all 0.25s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            border: 1px solid #dcece8;
+        }
+
+        .project-nexus:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-img {
+            position: relative;
+            height: 180px;
+            overflow: hidden;
+            background: #cbdcd8;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.3s;
+        }
+
+        .project-label {
+            position: absolute;
+            bottom: 12px;
+            left: 12px;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            padding: 4px 12px;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            color: white;
+            font-weight: 500;
+        }
+
+        .project-info {
+            padding: 1.2rem 1.2rem 1.5rem;
+        }
+
+        .project-tech {
+            font-size: 0.75rem;
+            font-family: monospace;
+            color: #1e6f5c;
+            margin: 6px 0 8px;
+            font-weight: 600;
+        }
+
+        /* skills */
+        .skills-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            background: white;
+            border-radius: 28px;
+            padding: 1.8rem;
+            border: 1px solid #d4e6e2;
+        }
+
+        .skill-category {
+            flex: 1;
+        }
+
+        .skill-badge {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            margin-top: 0.8rem;
+        }
+
+        .skill-badge span {
+            background: #eef6f4;
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+
+        /* contact */
+        .contact-box {
+            background: white;
+            border-radius: 32px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            text-align: center;
+            border: 1px solid #d4e6e2;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            background: #f1f8f6;
+            padding: 0.75rem 1.8rem;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 600;
+            color: #1e4d47;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .contact-item:hover {
+            background: #1e6f5c;
+            color: white;
+            transform: translateY(-3px);
+            border-color: #1e6f5c;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: #e2efec;
+            color: #2c5f58;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 780px) {
+            .about-row {
+                grid-template-columns: 1fr;
+            }
+            .projects-showcase {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                gap: 0.8rem;
+                margin-top: 0.6rem;
+            }
+            .home-text h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">✦ anshar Salsaraja</div>
+        <ul class="nav-links">
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#education">Riwayat Sekolah</a></li>
+            <li><a href="#featured-projects">Featured</a></li>
+            <li><a href="#skills">Skill</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main>
+    <!-- HOME Section -->
+    <section id="home">
+        <div class="container">
+            <div class="home-content">
+                <div class="home-text">
+                    <div class="greeting">Halo, Saya</div>
+                    <h1>Anshar Salsaraja</h1>
+                    <div class="location">
+                        <i class="fas fa-map-marker-alt"></i> 
+                        <span>Tinggal di desa dayah dayah blang mangki</span>
+                    </div>
+                    <p style="margin-bottom: 1.5rem; max-width: 500px;">Seorang pengembang web & teknologi dari Tanah Rencong. Fokus membangun solusi digital yang fungsional dan humanis.</p>
+                    <a href="#contact" class="btn">Hubungi Saya <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="home-avatar">
+                    <div class="avatar-icon">
+                        <!-- GANTI NAMA FILE FOTO DI SINI -->
+                        <img src="image.png" alt="Foto Anshar Salsaraja">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT ME + RIWAYAT SEKOLAH -->
+    <section id="about">
+        <div class="container">
+            <h2>Tentang Saya</h2>
+            <div class="about-row">
+                <div class="about-card">
+                    <h3><i class="fas fa-user-circle"></i> Tentang Anshar</h3>
+                    <p>Perkenalkan, <strong>Anshar Salsaraja</strong>, lahir di desa Dayah Blang Mangki. Saya sangat tertarik dengan dunia pengembangan web, backend, dan problem solving. Saya percaya bahwa teknologi ditangan orang yang baik dapat memudahkan banyak orang. Saat ini saya aktif mengerjakan berbagai project dan terus belajar hal baru setiap harinya.</p>
+                </div>
+                <div class="education-card" id="education">
+                    <h3><i class="fas fa-graduation-cap"></i> Riwayat Sekolah</h3>
+                    <div class="edu-item">
+                        <h4>SD Negeri Tindeu</h4>
+                        <div class="year"><i class="far fa-calendar-alt"></i> 2014 - 2019</div>
+                    </div>
+                    <div class="edu-item">
+                        <h4>MTsN 1 sigli</h4>
+                        <div class="year"><i class="far fa-calendar-alt"></i> 2019 - 2021</div>
+                    </div>
+                    <div class="edu-item">
+                        <h4>SMA Negeri 1 Simpang 3 (IPA)</h4>
+                        <div class="year"><i class="far fa-calendar-alt"></i> 2021 - 2023</div>
+                    </div>
+                    <div class="edu-item">
+                        <h4>Universitas Jabal Ghafur - Teknik Informatika (S1)</h4>
+                        <div class="year"><i class="far fa-calendar-alt"></i> 2024 - Sekarang</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION - FEATURED & OTHER PROJECTS SEBARIS 2 -->
+    <section id="featured-projects">
+        <div class="container">
+            <h2 class="section-title">📂 Portofolio Proyek</h2>
+            <!-- Featured Projects -->
+            <div class="featured-wrapper">
+                <h3><i class="fas fa-star"></i> Featured Projects</h3>
+                <div class="projects-showcase">
+                    <a href="https://ansarsalsaraja123-source.github.io/spotytube/" target="_blank" class="project-nexus">
+                        <div class="project-img">
+                            <img src="https://i.pinimg.com/736x/e3/ce/67/e3ce67b87dbeae8e4634088cd2e6839a.jpg" alt="Spotytube">
+                            <span class="project-label"><i class="fas fa-play"></i> Streaming</span>
+                        </div>
+                        <div class="project-info">
+                            <h3>Spotytube</h3>
+                            <div class="project-tech">HTML · CSS · JS</div>
+                            <p>Platform musik spotytube dengan UI imersif dan responsif.</p>
+                        </div>
+                    </a>
+                    <a href="https://ansarsalsaraja123-source.github.io/mengelola-keuangan/" target="_blank" class="project-nexus">
+                        <div class="project-img">
+                            <img src="https://i.pinimg.com/736x/07/62/6a/07626a6cd7e46388ec301ae433e4d638.jpg" alt="Mengelola Keuangan">
+                            <span class="project-label"><i class="fas fa-chart-line"></i> Finansial</span>
+                        </div>
+                        <div class="project-info">
+                            <h3>Mengelola Keuangan</h3>
+                            <div class="project-tech">HTML · CSS · JS</div>
+                            <p>mengelola keuangan dengan kecerdasan teknologi.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS Section -->
+    <section id="skills">
+        <div class="container">
+            <h2>📌 Skill & Keahlian</h2>
+            <div class="skills-wrapper">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Bahasa Pemrograman</h3>
+                    <div class="skill-badge">
+                        <span>JavaScript</span>
+                        <span>PHP</span>
+                        <span>HTML</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Database & Tools</h3>
+                    <div class="skill-badge">
+                        <span>MySQL</span>
+                        <span>Git / GitHub</span>
+                        <span>MariaDB</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT section - langsung mengarah ke tujuan real -->
+    <section id="contact">
+        <div class="container">
+            <h2>📬 Kontak & Media Sosial</h2>
+            <div class="contact-box">
+                <div class="contact-info">
+                    <!-- WhatsApp: menggunakan link wa.me dengan nomor contoh (ganti dengan nomor asli jika perlu) 
+                         tapi biar langsung terarah, gunakan nomor yang valid milik Anshar (contoh sementara +628123456789) 
+                         Bisa disesuaikan nanti. Karena tidak ada nomor di deskripsi, saya pakai format wa.me/628123456789 
+                         agar bisa diklik. Pengguna bisa ganti nanti. Untuk sekarang menggunakan nomor placeholder yg bisa diedit -->
+                    <a href="https://wa.me/6285213682592?text=Halo%20Anshar%2C%20saya%20tertarik%20dengan%20portofolio%20Anda" class="contact-item" target="_blank">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                    <!-- Instagram: sesuai username @4n5h4r -->
+                    <a href="https://www.instagram.com/4n5h4r" class="contact-item" target="_blank">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </a>
+                    <!-- Gmail: link mailto -->
+                    <a href="mailto:ansarsalsaraja123@gmail.com" class="contact-item">
+                        <i class="fas fa-envelope"></i> Gmail
+                    </a>
+                    <!-- No Telepon: mengarah ke tel: (bisa panggil) -->
+                    <a href="tel:" class="contact-item">
+                        <i class="fas fa-phone-alt"></i> No Telepon
+                    </a>
+                </div>
+                <div>
+                    <p style="font-style: italic; color: #2c5f58;">💬 "Siap berkolaborasi, terbuka untuk diskusi project"</p>
+                </div>
+            </div>
+            <!-- Tambahan konten kecil -->
+            <div style="margin-top: 2rem; background: #ffffffd9; border-radius: 20px; padding: 1.2rem; border-left: 5px solid #1e6f5c;">
+                <p><i class="fas fa-paper-plane"></i> <strong>Butuh bantuan atau sekedar ngobrol seputar web development?</strong> Jangan sungkan untuk menghubungi saya lewat kontak di atas. Saya aktif membagikan insight seputar pemrograman dan pengalaman selama tinggal di Simpang 3.</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>© 2026 Anshar Salsaraja — Dibuat dengan <i class="fas fa-heart" style="color: #c44536;"></i> dari Simpang 3, Indonesia. Portofolio sederhana full satu halaman.</p>
+</footer>
+
+<!-- Tidak ada perubahan script besar, hanya kontak menjadi link langsung -->
+<script>
+    (function() {
+        // optional: memastikan jika ada elemen lain yang perlu smooth, tidak mengganggu
+        document.querySelectorAll('.nav-links a, .btn').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if(this.getAttribute('href') && this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if(targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+        });
+        // untuk tombol "Hubungi Saya" dari home
+        const hubungiBtn = document.querySelector('.btn');
+        if(hubungiBtn && hubungiBtn.getAttribute('href') === '#contact') {
+            hubungiBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            });
+        }
+        // Menambahkan handling jika ada perubahan gambar default (tetap biarkan)
+        console.log("Portofolio dengan kontak langsung aktif");
+    })();
+</script>
+</body>
+</html>
